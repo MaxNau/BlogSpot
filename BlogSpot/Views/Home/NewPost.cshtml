@@ -4,7 +4,7 @@
 }
 
 <div id="new_post">
-    <form method="post">
+    <form method="post" ng-submit="post()">
         <div class="new-post-title">
             <textarea placeholder="Post title" ng-keyup="resizePostTitleHeight($event)"></textarea>
         </div>
@@ -13,6 +13,10 @@
                 <textarea id="texteditor"></textarea>
                 <input name="image" type="file" id="upload" class="hidden" onchange="">
             </div>
+        </div>
+        <div class="new-post-tags">
+            <span id="tag_label" ng-repeat="tag in tags" class="tag tag-label label label-info">{{tag.Name}}<span ng-click="removeTag($index)"><a class="close-tag">x</a></span></span>
+            <input class="tag-input" ng-model="tagName" ng-keyup="$event.keyCode === 13 && addNewTag(tagName)" placeholder="Input tag" maxlength="20" type="text" />
         </div>
         <div id="new_post_footer">
             <input type="submit" class="post-submit btn btn-primary" value="Post" />

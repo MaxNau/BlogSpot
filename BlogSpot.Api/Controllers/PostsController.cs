@@ -35,5 +35,10 @@ namespace BlogSpot.Api.Controllers
 
                 return null;
         }
+        [Route("add")]
+        public PostDTO AddPost(PostDTO post)
+        {
+            return null;
+        }
     }
 }
