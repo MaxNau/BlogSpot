@@ -1,6 +1,7 @@
 ﻿body
 { 
   background-color:black  !important;
+  height: 100%;
 }
 
 #main, #logo, #menubar, #site_content, #footer
@@ -21,10 +22,14 @@
 #main
 { padding-bottom: 40px;
     height: 100%;
+    position: relative;
 }
 
-#header
-{ background: transparent url(images/logo.jpg) no-repeat;}
+#header {
+    position:relative; 
+    float:left;
+    width: 100%;
+}
 
 #logo
 { 
@@ -101,13 +106,12 @@ ul#menu li a:hover
 
 #content ul li
 { list-style-type: none;
-  background: url(images/bullet.png) no-repeat;
   margin: 0 0 0 0; 
   padding: 0 0 4px 25px;
   line-height: 1.5em;}
 
 #footer
-{ width: 916px;
+{ width: 100%;
   font-family: 'trebuchet ms', sans-serif;
   font-size: 90%;
   height: 28px;
@@ -176,12 +180,25 @@ ul#menu li a:hover
     margin-top: 50px;
 }
 
-.smoke {
-    background:transparent url(../Content/Images/BlueFog.png);
-    background-repeat: repeat;  
-    z-index:-2;
-    animation:move-clouds-back 300s linear infinite;
-    background-size: cover;
+@-moz-document url-prefix() {
+    .smoke {
+        background: transparent url(../Content/Images/BlueFog.png);
+        background-repeat: repeat;
+        z-index: -2;
+        animation: move-clouds-back 300s linear infinite;
+        float: left;
+        filter: brightness(3);
+    }
+}
+
+@media {
+    .smoke {
+        background: transparent url(../Content/Images/BlueFog.png);
+        background-repeat: repeat;
+        z-index: -2;
+        animation: move-clouds-back 300s linear infinite;
+        float: left;
+    }
 }
 
 @keyframes move-clouds-back {
@@ -406,6 +423,23 @@ ul#menu li a:hover
     position: relative;
 }
 
+.post-title {
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.3em;
+    margin-bottom: 0.5em;
+    text-shadow: #EDEDED 3px 2px 0;
+}
+
+.post-meta {
+    font-style: italic;
+    font-size: 16px;
+    color: #777;
+}
+
 .post-category, .post-tags {
     padding-left: 10px;
     padding-bottom: 10px;
@@ -427,6 +461,20 @@ ul#menu li a:hover
     font-family: 'Open Sans', sans-serif;
     padding-top: 10px;
     padding-left: 40px;
+}
+
+.post-content {
+    color: #444;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    letter-spacing: 0.05em;
+    font-weight: 100;
+    font-style: normal;    
+    font-size: 14px;
+    text-align: justify;
 }
 
 .post-footer > a {
@@ -454,3 +502,117 @@ ul#menu li a:hover
      padding-left: 15px;
 }
 /*#endregion PostBrief*/
+
+@keyframes flash {
+	from { opacity: 1; filter: brightness(0) } 
+    1%{
+    opacity: 1;
+    }
+    3.5%{
+        opacity: 0.6; filter: brightness(5);
+    }
+    4%{
+        opacity: 0.2;
+    }
+    6% {
+        opacity: 1; filter: brightness(12);
+    }
+    8% { 
+        opacity: 0.3;
+    }
+    10% {
+        opacity: 1; filter: brightness(6);
+    }
+    14% {
+        opacity: 0.4;
+    }
+	to { opacity: 1 ; filter: brightness(3)}
+}
+
+#header:hover ~ .lightning {
+     animation: move-clouds-back 300s linear infinite, flash ease-out 4s infinite;
+}
+
+.lightning {
+    position: absolute; 
+    height:100%; 
+    width:100%;
+}
+
+.tags {
+    display: inline-flex;
+}
+
+.tag {
+    display: inline-block;
+}
+
+.tag > a {
+    width: 100px;
+}
+
+#tinymce_container {
+    width: 800px;
+    min-height: 800px;
+    margin-bottom: 20px;
+}
+
+.mce-tinymce #texteditor_ifr {
+    min-height: 700px !important;
+}
+
+.posts-controll-panel {
+    width: 100%;
+    min-height: 50px;
+}
+
+.controlls-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.controlls-list > li > .btn-primary {
+    background: white;
+    color: black;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.controlls-list > li > .btn-primary:hover {
+    background: black;
+    color: white;
+}
+
+.new-post-title > textarea {
+    font-size: 32px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 45px;
+    resize:none;
+    width: 100%;
+    border: 1px solid #c5c5c5;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)
+}
+
+.new-post-title {
+    margin-right: 16px;
+    margin-bottom: 35px;
+    margin-top: 15px;
+}
+
+.post-submit {
+    float: right; 
+    margin-right: 16px;
+}
+
+#new_post_footer > .btn-primary {
+    background: white !important;
+    color: black;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+#new_post_footer > .btn-primary:hover {
+    background: black !important;
+    color: white;
+}

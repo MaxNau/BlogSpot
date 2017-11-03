@@ -41,5 +41,15 @@ namespace BlogSpot.Controllers
         {
             return View();
         }
+
+        public ActionResult Post()
+        {
+            return View();
+        }
+
+        public ActionResult NewPost()
+        {
+            return View();
+        }
     }
 }

@@ -23,6 +23,15 @@ namespace BlogSpot.Api.DAL.Repositories
             throw new NotImplementedException();
         }
 
+        public Post GetPostByDateAndTitle(Post post)
+        {
+            return context.Posts
+                               .Include(p => p.Category)
+                               .Include(p => p.Tags)
+                               .FirstOrDefault(p => p.PostedOn.Date.Equals(post.PostedOn.Date) &
+                                                    p.Tiltle == post.Tiltle);
+        }
+
         public ICollection<Post> GetPostsRange(int start, int postsPerPage)
         {
             var posts = context.Posts

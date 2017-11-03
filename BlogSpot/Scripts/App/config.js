@@ -12,6 +12,10 @@
         templateUrl: '/home/aboutme',
         controller: 'aboutController'
     })
+    .when('/post/:year/:month/:day/:title', {
+        templateUrl: '/home/posts',
+        controller: 'postsController'
+    })
     .when('/', {
         templateUrl: '/home/posts',
         controller: 'postsController'

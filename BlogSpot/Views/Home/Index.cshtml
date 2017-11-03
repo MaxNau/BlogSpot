@@ -18,10 +18,10 @@
     <script src="~/Scripts/main.js"></script>
 </head>
 
-<body ng-app="blogApp">
-    <div id="main" class="smoke">
+<body>
+    <div id="main" ng-controller="mainController">
         <!-- Header -->
-        <div id="header">
+        <div id="header" ng-mouseover="thunder()" ng-mouseleave="stopThunder()">
             <div id="logo">
                 <div id="logo_text">
                     <h1 id="logo_header">
@@ -47,6 +47,8 @@
             </div>
 
         </div>
+
+        <div class="lightning smoke"></div>
 
         <!-- Site Content -->
 

@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div id="new_post">
+    <form method="post">
+        <div class="new-post-title">
+            <textarea placeholder="Post title" ng-keyup="resizePostTitleHeight($event)"></textarea>
+        </div>
+        <div class="new-post-body">
+            <div id="tinymce_container">
+                <textarea id="texteditor"></textarea>
+                <input name="image" type="file" id="upload" class="hidden" onchange="">
+            </div>
+        </div>
+        <div id="new_post_footer">
+            <input type="submit" class="post-submit btn btn-primary" value="Post" />
+        </div>
+    </form>
+</div>

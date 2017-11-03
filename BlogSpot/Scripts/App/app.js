@@ -31,6 +31,16 @@
             controller: 'postsController',
             resolve: resolveController(['postsController'])
         })
+        .when('/post/:year/:month/:day/:title', {
+            templateUrl: '/home/post',
+            controller: 'postController',
+            resolve: resolveController(['postController'])
+        })
+        .when('/newpost', {
+            templateUrl: '/home/newPost',
+            controller: 'newPostController',
+            resolve: resolveController(['newPostController'])
+        })
         .when('/about', {
             templateUrl: '/home/aboutme',
             controller: 'aboutController',
@@ -43,4 +53,19 @@
         });
     });
 
+    app.controller("mainController", function ($scope, $http) {
+        var thunder = new Audio("https://www.zedge.net/d2w/4/474042/831146428/dl/");
+        $scope.thunder = function () {
+            thunder.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            thunder.play();
+        }
+
+        $scope.stopThunder = function () {
+            thunder.currentTime = 0;
+            thunder.pause();
+        }
+    });
 });
