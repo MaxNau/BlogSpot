@@ -1,0 +1,1 @@
+D:\Projects\BlogSpot\BlogSpot.Host\bin\Debug\BlogSpot.Host.exe.config
